@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.action_sms) {
             Intent intent = new Intent(Intent.ACTION_SEND);
-            String message = "Hi";
+            String message = "Hey Study Partner";
             intent.setData(Uri.parse("smsto:"));  // This ensures only SMS apps respond
             intent.putExtra("address", "6126003637");
             intent.putExtra("sms_body", message);
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.actionDrawer_sms) {
             Intent intent = new Intent(Intent.ACTION_SEND);
-            String message = "Hi";
+            String message = "Hey Study Partner";
             intent.setData(Uri.parse("smsto:"));  // This ensures only SMS apps respond
             intent.putExtra("address", "6126003637");
             intent.putExtra("sms_body", message);
