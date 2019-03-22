@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (id == R.id.action_delete) {
-            Snackbar.make(getWindow().getDecorView(), "deleting a study mate not available yet.", Snackbar.LENGTH_LONG)
+            Snackbar.make(getWindow().getDecorView(), "Deleting a study mate not available yet.", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return true;
         }
@@ -125,18 +125,41 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.actionDrawer_add) {
+            Snackbar.make(getWindow().getDecorView(), "Add study mates not available yet.", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            return true;
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.actionDrawer_delete) {
+            Snackbar.make(getWindow().getDecorView(), "Deleting a study mate not available yet.", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            return true;
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.actionDrawer_settings) {
+            Intent settingsactivity = new Intent(this, SettingsActivity.class);
+            startActivity(settingsactivity);
+            return true;
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.actionDrawer_email) {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("*/*");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Hey Study Partner");
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+            return true;
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.actionDrawer_sms) {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            String message = "Hi";
+            intent.setData(Uri.parse("smsto:"));  // This ensures only SMS apps respond
+            intent.putExtra("address", "6126003637");
+            intent.putExtra("sms_body", message);
+            intent.setType("text/plain");
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+            return true;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
